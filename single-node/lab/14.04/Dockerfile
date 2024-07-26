@@ -9,8 +9,9 @@ RUN \
   apt-get install -y wget lsb-release && \
   rm -rf /var/lib/apt/lists/*
 
+COPY startup.sh . 
 
 RUN \
   wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.8.0-1_amd64.deb && sudo WAZUH_MANAGER='wazuh.manager' WAZUH_AGENT_GROUP='linux' WAZUH_AGENT_NAME='example' dpkg -i ./wazuh-agent_4.8.0-1_amd64.deb
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+CMD ["/bin/bash", "./startup.sh"]
