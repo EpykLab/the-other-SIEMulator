@@ -106,16 +106,8 @@ services:
       - wazuh.manager
     links:
       - wazuh.manager:wazuh.manager
-
-  wazuh.endpoint27372:
-    build: ./lab/cve-2023-27372/
-    #image: ghcr.io/epyklab/siemtrainer1404:0.0.3
-    hostname: wazuh.endpoint27372
-    restart: always
-    depends_on: 
-      - wazuh.manager
-    links:
-      - wazuh.manager:wazuh.manager
+    ports:
+      - 8000:8000
 volumes:
   wazuh_api_configuration:
   wazuh_etc:

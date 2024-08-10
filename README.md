@@ -1,30 +1,32 @@
-# The other SIEMulator
+# 🛡️ The Other SIEMulator
 
-## What is the SIEMulator
+Welcome to **The Other SIEMulator**! This project provides an easy-to-deploy SIEM (Security Information and Event Management) environment for practicing cybersecurity skills. Whether you're new to IT or looking to sharpen your blue team capabilities, this project is for you!
 
-The siemulator is a docker network that privisions the Wazuh SIEM tools
-along with a handful of severs that are enrolled in the Wazuh cluster. 
-This enables the students to train on a siem with minimal compute
-resources as for free. 
+## 📚 Overview
 
+**The Other SIEMulator** leverages Docker to spin up a complete SIEM environment featuring Wazuh. You'll have multiple servers set up as network hosts, enrolled in a Wazuh cluster. This setup is perfect for training in detection, incident response, and other essential cybersecurity tasks.
 
-## Installation
+## 🚀 Getting Started
 
-To get the this all working, there are several installations that you
-will need to install docker. Follow the installation instructions for
-you operating system.
+### Prerequisites
 
-## Setting everything up with docker-compose
+Before you begin, ensure you have the following installed:
 
-```bash
-# macos and windows
-docker-compose up -d
-```
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-```bash
-# linux installations
-sudo -E docker-compose up -d
-```
+### Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/EpykLab/the-other-SIEMulator.git
+    cd the-other-SIEMulator
+    ```
+
+2. **Build and start the environment**:
+    ```bash
+    docker-compose up --build
+    ```
 
 The wazuh agent is already installed on all the endpoints. Howevever, due
 to some limitations between how docker and the wazuh agent operated, the 
@@ -41,11 +43,20 @@ Find the name/id of all the endpoints you want to start the agent on:
 sudo docker exec single-node-wazuh.endpoint1404-1 /bin/bash -c "service wazuh-agent start"
 ```
 
-
-## Logging into the Interface
-
-Launch a browser and navigate to `https://localhost`. You will be 
-presented with a certificate warning, you can ignore all of these.
+## 🛠️ Usage
 
 Username: admin
 Password: SecretPassword
+
+
+- **Wazuh Dashboard**: Access the Wazuh dashboard via your browser at `https://localhost`.
+- **Simulate Attacks**: Use the environment to simulate attacks and practice incident response.
+- **Explore Logs**: Dive into the logs collected by the SIEM to understand how different events are captured and analyzed.
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have suggestions for improvements or additional features, feel free to submit a pull request or open an issue.
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
