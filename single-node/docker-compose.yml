@@ -100,7 +100,17 @@ services:
   wazuh.endpoint1404:
     build: ./lab/14.04/
     #image: ghcr.io/epyklab/siemtrainer1404:0.0.3
-    hostname: wazuh.endpoint
+    hostname: wazuh.endpoint1404
+    restart: always
+    depends_on: 
+      - wazuh.manager
+    links:
+      - wazuh.manager:wazuh.manager
+
+  wazuh.endpoint27372:
+    build: ./lab/cve-2023-27372/
+    #image: ghcr.io/epyklab/siemtrainer1404:0.0.3
+    hostname: wazuh.endpoint27372
     restart: always
     depends_on: 
       - wazuh.manager
