@@ -20,10 +20,15 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository**:
     ```bash
     git clone https://github.com/EpykLab/the-other-SIEMulator.git
-    cd the-other-SIEMulator
+    cd the-other-SIEMulator/single-node
     ```
 
-2. **Build and start the environment**:
+2. **Set up the certs**:
+    ```bash
+    docker-compose -f generate-indexer-certs.yml run --rm generator 
+    ```
+
+3. **Build and start the environment**:
     ```bash
     docker-compose up --build
     ```
